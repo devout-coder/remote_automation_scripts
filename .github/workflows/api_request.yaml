@@ -1,0 +1,19 @@
+name: API Request
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+
+jobs:
+  api_request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Send API Request
+        run: |
+          curl -sS "https://doneify.onrender.com" >> api_logs.txt
+          echo "Timestamp: $(date)" >> api_logs.txt
+          echo "---------------------" >> api_logs.txt
