@@ -17,8 +17,3 @@ jobs:
           curl -sS "https://doneify.onrender.com" >> api_logs.txt
           echo "Timestamp: $(date)" >> api_logs.txt
           echo "---------------------" >> api_logs.txt
-      - name: Upload output file as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: api_logs
-          path: api_logs.txt
